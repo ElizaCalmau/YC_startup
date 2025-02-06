@@ -9,6 +9,6 @@ export const ResetSearchButton = () => {
         if (form) form.reset()
     }
     return (
-        <Link href='/'><button type='reset' onClick={resetSearch} className="search-btn text-white">X</button> </Link>
+        <Link href='/'><button type='reset' onClick={resetSearch} className="search-btn text-white size-5">X</button> </Link>
     );
 };
