@@ -40,4 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/idea/*.xml
+
+/.idea/yc-startup.iml
+/.idea/vcs.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/modules.xml
+/.idea/gbrowser_project.xml
+/.idea/.gitignore
+/.idea/material_theme_project_new.xml
