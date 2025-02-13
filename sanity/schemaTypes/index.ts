@@ -1,8 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import {eventType} from "@/sanity/schemaTypes/eventType";
-import {venueType} from "@/sanity/schemaTypes/venueType";
-import {artistType} from "@/sanity/schemaTypes/artistType";
+import {author} from "@/sanity/schemaTypes/author";
+import {startup} from "@/sanity/schemaTypes/startup";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [eventType, venueType, artistType],
+  types: [author, startup],
 }
