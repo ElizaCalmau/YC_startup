@@ -1,5 +1,5 @@
 import {formatDate} from "@/lib/utils";
-import {EyeIcon} from 'lucide-react'
+
 import Link from "next/link";
 import Image from "next/image";
 import {Button} from '@/components/ui/button'
@@ -12,7 +12,7 @@ export const StartupCard = ({startup}: {startup: StartupTypeCard}) => {
             <div className="flex-between">
                 <p className={"startup_card_date"}>{date}</p>
                 <div className="flex gap-1.5">
-                    <EyeIcon className="size-6 text-primary"/>
+                    {/*<EyeIcon className="size-6 text-primary"/>*/}
                     <span className="text-16-medium"> {views}</span>
                 </div>
             </div>
