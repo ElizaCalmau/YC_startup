@@ -182,7 +182,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: STARTUP_QUERY
-// Query: *[_type == 'startup'] {_createdAt, _id, title, category, views, image, description, author -> {name, bio, id, image}}
+// Query: *[_type == 'startup'] {_createdAt, _id, title, category, views, image, description, _type, author -> {name, bio, id, image}}
 export type STARTUP_QUERYResult = Array<{
   _createdAt: string;
   _id: string;
@@ -191,6 +191,7 @@ export type STARTUP_QUERYResult = Array<{
   views: number | null;
   image: string | null;
   description: string | null;
+  _type: "startup";
   author: {
     name: string | null;
     bio: string | null;
@@ -213,6 +214,6 @@ export type STARTUP_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == 'startup'] {_createdAt, _id, title, category, views, image, description, author -> {name, bio, id, image}}": STARTUP_QUERYResult;
+    "*[_type == 'startup'] {_createdAt, _id, title, category, views, image, description, _type, author -> {name, bio, id, image}}": STARTUP_QUERYResult;
   }
 }
