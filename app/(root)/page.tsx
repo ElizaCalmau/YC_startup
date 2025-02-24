@@ -1,10 +1,11 @@
 import SearchForm from "@/components/SearchForm";
-import {client} from "@/sanity/lib/client";
 import {STARTUP_QUERY} from "@/sanity/lib/queries";
-import {StartupCard} from "@/components/StartupCard";
+import {StartupCard, StartupTypeCard} from "@/components/StartupCard";
+import {sanityFetch, SanityLive} from "@/sanity/lib/live";
+
 export default async function Home({searchParams}: {searchParams: Promise<{query?: string}>}) {
   const {query} = await searchParams;
-  const startups = await client.fetch(STARTUP_QUERY);
+  const {data: startups} = await sanityFetch({query:STARTUP_QUERY});//revalidate whenever changes are made
   console.log('startup', startups);
   return (
     <>
@@ -20,14 +21,17 @@ export default async function Home({searchParams}: {searchParams: Promise<{query
       </section>
       <section className="section_container">
         <p className="text-30-semibold">
-          {query ? `Search results for ${query}` : 'All Startups'}
+          {query ? `Search results for ${query}` : 'All Startups'}</p>
           <ul className="mt-7 card_grid">
-            {startups?.length > 0 ? (startups.map((startup: StartupCardType, index: number) => (
-                <StartupCard key={startup._id} startup={startup} />
-            ))) : <p>No startups found.</p>}
+            {startups?.length > 0 ? (startups.map((startup : StartupTypeCard) => {
+              return (
+                  <StartupCard key={startup._id} startup={startup}/>
+              );
+            })) : <p>No startups found.</p>}
           </ul>
-          </p>
+
       </section>
+      <SanityLive />
     </>
   );
 }
