@@ -19,6 +19,9 @@ export const StartupCard = ({startup}: {startup: StartupTypeCard}) => {
                     <span className="text-16-medium"> {views}</span>
                 </div>
             </div>
+            <div>
+                <p> {title} </p>
+            </div>
             <div className="flex-between mt-5 gap-5">
                 <div className="flex-1">
                     <Link href={`/users/${author?._id}`}>
