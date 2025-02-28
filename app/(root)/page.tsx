@@ -5,7 +5,8 @@ import {sanityFetch, SanityLive} from "@/sanity/lib/live";
 
 export default async function Home({searchParams}: {searchParams: Promise<{query?: string}>}) {
   const {query} = await searchParams;
-  const {data: startups} = await sanityFetch({query:STARTUP_QUERY});//revalidate whenever changes are made
+  const params = {search: query || null};
+  const {data: startups} = await sanityFetch({query:STARTUP_QUERY, params});//revalidate whenever changes are made
   console.log('startup', startups);
   return (
     <>
